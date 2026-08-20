@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import Logo from "@/components/ui/logo";
@@ -99,7 +100,7 @@ export default function Authcard() {
         </div>
       </div>
       <div className="pointer-events-none my-auto hidden sm:block">
-        <img src="/halfappleforauthpage.png" alt="" />
+        <Image src="/halfappleforauthpage.png" alt="" width={220} height={280} className="h-auto w-auto" />
       </div>
     </div>
   );

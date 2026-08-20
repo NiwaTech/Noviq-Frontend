@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import {
   ArrowUpRight,
@@ -232,7 +233,13 @@ export default function Index() {
 
             {/* App mockup */}
             <div className="bg-transparent">
-              <img className="" src="/LandingPagemockup.png" alt="" />
+              <Image
+                src="/LandingPagemockup.png"
+                alt=""
+                width={1280}
+                height={920}
+                className="mx-auto w-full max-w-5xl"
+              />
             </div>
           </div>
         </section>
@@ -356,10 +363,12 @@ export default function Index() {
                       <p className="text-sm text-gray-500">{template.tag}</p>
                       <div className="mt-3 flex -space-x-2">
                         {template.images.map((image, i) => (
-                          <img
+                          <Image
                             key={`${template.title}-${i}`}
                             src={image}
                             alt=""
+                            width={24}
+                            height={24}
                             className="h-6 w-6 rounded-full border-2 border-white object-cover"
                           />
                         ))}
