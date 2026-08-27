@@ -19,7 +19,7 @@ export default function Authcard() {
         </div>
 
         {/* card */}
-        <div className="rounded-[28px] bg-white p-7 shadow-[0_18px_60px_-30px_rgba(61,15,168,0.35)] sm:rounded-2xl sm:p-6 lg:rounded-2xl lg:bg-white/70">
+        <form className="rounded-[28px] bg-white p-7 shadow-[0_18px_60px_-30px_rgba(61,15,168,0.35)] sm:rounded-2xl sm:p-6 lg:rounded-2xl lg:bg-white/70">
           <h1 className="text-center text-xl font-bold tracking-tight text-[#14103a] sm:text-2xl">
             Sign in with your work email
           </h1>
@@ -87,7 +87,7 @@ export default function Authcard() {
           >
             Sign in
           </button>
-        </div>
+        </form>
 
         {/* footer pill */}
         <div className="mt-5 flex justify-center">
