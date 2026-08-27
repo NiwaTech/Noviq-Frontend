@@ -247,7 +247,7 @@ export default function Index() {
         {/* Features */}
         <section id="features" className="bg-[#fcfcff] py-16 sm:py-20">
           <div className="container">
-            <div className="mx-auto max-w-2xl text-center">
+            <header className="mx-auto max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#7E56D8]">
                 Our Core Features
               </span>
@@ -259,11 +259,11 @@ export default function Index() {
                 Noviq automates the tedious parts of video production so you
                 can focus on telling great stories.
               </p>
-            </div>
+            </header>
 
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {features.map((feature) => (
-                <div
+                <article
                   key={feature.title}
                   className="rounded-xl  bg-white p-5 shadow-[0_8px_30px_rgba(85,55,140,0.04)] transition-shadow hover:shadow-md"
                 >
@@ -281,7 +281,7 @@ export default function Index() {
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">
                     {feature.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -290,7 +290,7 @@ export default function Index() {
         {/* How it works */}
         <section id="how-it-works" className="bg-white py-16 sm:py-20">
           <div className="container">
-            <div className="mx-auto max-w-2xl text-center">
+            <header className="mx-auto max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#7E56D8]">
                 How It Works
               </span>
@@ -301,11 +301,11 @@ export default function Index() {
                 From raw footage to a polished final video, Noviq handles the
                 heavy lifting while you stay in control.
               </p>
-            </div>
+            </header>
 
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
               {steps.map((step) => (
-                <div
+                <article
                   key={step.number}
                   className={cn("rounded-xl p-5 sm:p-6", step.color)}
                 >
@@ -318,7 +318,7 @@ export default function Index() {
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">
                     {step.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
@@ -327,7 +327,7 @@ export default function Index() {
         {/* Templates */}
         <section id="templates" className="bg-[#fcfcff] py-16 sm:py-20">
           <div className="container">
-            <div className="mx-auto max-w-2xl text-center">
+            <header className="mx-auto max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#7E56D8]">
                 Smart Templates
               </span>
@@ -338,11 +338,11 @@ export default function Index() {
                 Prompt-ready starting points with pacing, captions and grade
                 already dialed in.
               </p>
-            </div>
+            </header>
 
             <div className="mt-20 grid gap-6 sm:grid-cols-3 px-10">
               {templates.map((template) => (
-                <div key={template.title} className="relative pt-6">
+                <article key={template.title} className="relative pt-6">
 
                   <div className="absolute inset-x-0 top-0 z-0 mx-auto h-24 w-[80%] rounded-t-2xl bg-[#EDE8FB]" />
                   <div className="absolute inset-x-0 top-3 z-10 mx-auto h-24 w-[90%] rounded-t-2xl bg-[#F4F1FC]" />
@@ -375,7 +375,7 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
 
@@ -395,7 +395,7 @@ export default function Index() {
         {/* Pricing */}
         <section id="pricing" className="bg-white py-16 sm:py-20">
           <div className="container">
-            <div className="mx-auto max-w-2xl text-center">
+            <header className="mx-auto max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#7E56D8]">
                 Pricing
               </span>
@@ -407,7 +407,7 @@ export default function Index() {
                 creating your first video or managing client projects, there's
                 a plan for you.
               </p>
-            </div>
+            </header>
 
             <div className="mt-8 flex items-center justify-center gap-3">
               <span
@@ -438,7 +438,7 @@ export default function Index() {
                   ? Math.round(plan.price * 0.8)
                   : plan.price;
                 return (
-                  <div
+                  <article
                     key={plan.name}
                     className={cn(
                       "relative rounded-2xl border p-8",
@@ -503,7 +503,7 @@ export default function Index() {
                       {plan.cta}
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
-                  </div>
+                  </article>
                 );
               })}
             </div>
@@ -513,14 +513,14 @@ export default function Index() {
         {/* FAQ */}
         <section className="bg-white py-16 sm:py-20">
           <div className="container">
-            <div className="mx-auto max-w-2xl text-center">
+            <header className="mx-auto max-w-2xl text-center">
               <span className="text-xs font-semibold uppercase tracking-widest text-[#7E56D8]">
                 FAQs
               </span>
               <h2 className="mt-3 text-3xl font-bold text-brand-dark sm:text-2xl">
                 Everything You Need to Know
               </h2>
-            </div>
+            </header>
 
             <div className="mx-auto mt-10 max-w-2xl">
               <Accordion type="single" collapsible defaultValue="item-0">

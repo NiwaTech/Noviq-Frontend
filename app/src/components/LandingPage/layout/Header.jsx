@@ -1,7 +1,10 @@
 "use client"
 import Logo from "@/components/ui/logo";
-import { ChevronDown, ArrowUpRight, Menu, X, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate }  from "@/lib/hooks/router";
+
+
 
 const NAV = [
   { label: "Home", href: "#home", active: true },
@@ -11,6 +14,7 @@ const NAV = [
 ];
 
 export default function Header() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,8 +31,8 @@ export default function Header() {
               key={item.label}
               href={item.href}
               className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-colors ${item.active
-                  ? "bg-secondary text-primary"
-                  : "text-muted-foreground hover:text-foreground"
+                ? "bg-secondary text-primary"
+                : "text-muted-foreground hover:text-foreground"
                 }`}
             >
               {item.label}
@@ -38,13 +42,13 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#pricing"
+          <button
+            onClick={() => navigate.to("auth")}
             className="hidden items-center gap-1.5 rounded-full bg-[#855BDE] px-4 py-2 text-[13px] font-bold text-white shadow-glow transition-transform hover:-translate-y-0.5 sm:inline-flex"
           >
             Start Editing
             <ArrowUpRight className="size-3.5" />
-          </a>
+          </button>
           <button
             type="button"
             aria-label="Toggle menu"
