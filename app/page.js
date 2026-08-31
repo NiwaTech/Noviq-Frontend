@@ -1,10 +1,10 @@
 import Layout from "../app/(index)/Layout";
-import Index from "./src/components/LandingPage/layout/Index";
+import Landing from "@/screens/Landing";
 
 export default function Home() {
   return (
     <Layout>
-      <Index />
+      <Landing />
     </Layout>
   );
 }
