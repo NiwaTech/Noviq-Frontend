@@ -1,5 +1,5 @@
-import HumanoidCard from "@/components/AuthPage/HumanoidCard";
-import Authcard from "@/components/AuthPage/AuthCard";
+import HumanoidCard from "@/components/builders/AuthPage/HumanoidCard";
+import Authcard from "@/components/builders/AuthPage/AuthCard";
 
 export default function Auth() {
   return (
