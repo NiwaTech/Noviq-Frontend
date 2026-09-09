@@ -1,7 +1,7 @@
 export const COLORS = {
     // Brand
     primary: "#7E56D8",
-    primaryLight: "#F1ECFB",
+    primaryLight: "#F9F5FF",
     primaryDark: "#3D0FA8",
     brandDark: "#130138",
 
@@ -40,6 +40,7 @@ export const COLORS = {
     button: "#7E56D8",
     buttonText: "#FFFFFF",
     switchbutton: "#FFFFFF",
+    hoverbutton: "#e0dfe2",
 
     confirm: "#3EB269",
     confirmBg: "#EAFAF0",
