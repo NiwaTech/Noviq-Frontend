@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
-import DesktopSideNav from "@/nativigation/DesktopSideNav";
-import Container from "@/screens/Dashboard/Container";
+import DesktopSideNav from "@/navigation/DesktopSideNav";
+import Container from "@/Layouts/DashboardWrapper/Container";
 
 export default function Dashboard() {
    const [content, setContent] = useState("dashboard");
