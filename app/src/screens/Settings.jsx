@@ -572,7 +572,7 @@ export default function Settings() {
                     Notification
                   </h2>
                   <p className="text-xs text-gray-500 mt-0.5">
-                    You've 6 unread notifications
+                    You&apos;ve 6 unread notifications
                   </p>
                 </div>
                 <button className="px-4 py-2 rounded-xl text-xs font-semibold bg-[#F3EFFE] text-[#6E36E4] hover:bg-purple-100 transition cursor-pointer">

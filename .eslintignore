@@ -1,0 +1,5 @@
+.next/
+.nextoo/
+node_modules/
+out/
+build/

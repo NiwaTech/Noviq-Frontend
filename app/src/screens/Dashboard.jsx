@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Search,
   Bell,
@@ -47,7 +48,7 @@ const RECENT_PROJECTS = [
 ];
 
 export default function Dashboard({ setActiveTab }) {
-  const [isProfileOpen, setIsProfileOpen] = useState(false); // Open by default matching Image 1
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [promptText, setPromptText] = useState("");
 
   return (
@@ -91,21 +92,27 @@ export default function Dashboard({ setActiveTab }) {
               onClick={() => setIsProfileOpen(!isProfileOpen)}
               className="w-8 h-8 rounded-full overflow-hidden border-2 border-emerald-500 focus:outline-none cursor-pointer p-0.5 bg-white"
             >
-              <img
+              <Image
                 src="https://i.pravatar.cc/100?img=12"
                 alt="David"
+                width={32}
+                height={32}
                 className="w-full h-full object-cover rounded-full"
+                unoptimized
               />
             </button>
 
-            {/* Profile Dropdown Modal (Matching Image 1 EXACTLY) */}
+            {/* Profile Dropdown Modal */}
             {isProfileOpen && (
               <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50 text-xs">
                 <div className="flex items-center gap-3 px-4 py-2.5 border-b border-gray-100">
-                  <img
+                  <Image
                     src="https://i.pravatar.cc/100?img=12"
                     alt="David"
+                    width={32}
+                    height={32}
                     className="w-8 h-8 rounded-full object-cover"
+                    unoptimized
                   />
                   <div>
                     <p className="font-bold text-gray-900 text-xs">David Okon</p>

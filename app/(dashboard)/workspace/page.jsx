@@ -1,6 +1,7 @@
-'use client'
-import Dashboard from "@/Layouts/DashboardWrapper";
+'use client';
+
+import DashboardShell from "@/screens/Dashboard";
 
 export default function Page() {
-   return <Dashboard />;
+  return <DashboardShell />;
 }
