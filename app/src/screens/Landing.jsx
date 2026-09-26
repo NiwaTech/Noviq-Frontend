@@ -11,8 +11,6 @@ import {
   Mic,
   LayoutTemplate,
   Award,
-  Image as ImageIcon,
-  Send,
   Check,
   CirclePlay
 } from "lucide-react";
@@ -101,16 +99,19 @@ const templates = [
   {
     title: "Product Spotlight",
     tag: "Trending",
+    ratio: "9:16",
     images: ["/Humanoid.png", "/Humanoid.png", "/Humanoid.png", "/Humanoid.png"]
   },
   {
     title: "Fast Travel Montage",
     tag: "New",
+    ratio: "16:9",
     images: ["/Humanoid.png", "/Humanoid.png", "/Humanoid.png", "/Humanoid.png"]
   },
   {
     title: "Founder Story",
     tag: "Popular",
+    ratio: "9:16",
     images: ["/Humanoid.png", "/Humanoid.png", "/Humanoid.png", "/Humanoid.png"]
   },
 ];
@@ -197,11 +198,9 @@ export default function Index() {
       <div className="container mx-auto">
         {/* Hero */}
         <section className="relative isolate overflow-hidden pb-16 pt-10 sm:pb-20 sm:pt-16">
-
-
           <div className="container relative z-10 flex flex-col items-center text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/90 shadow-sm px-4 py-1.5 text-xs font-semibold text-[#7E56D8]">
-              "Edit Videos at the Speed of Thought"
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-xs font-semibold text-[#7E56D8] shadow-sm">
+              &quot;Edit Videos at the Speed of Thought&quot;
             </span>
 
             <h1 className="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-brand-dark md:text-4xl">
@@ -217,14 +216,14 @@ export default function Index() {
             <div className="mt-8 flex flex-row items-center gap-4">
               <a
                 href="#pricing"
-                className="inline-flex items-center gap-2 rounded-full bg-[#7E56D8] px-2 py-2 text-xs font-semibold text-white  transition-colors hover:bg-[#7E56D8]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#7E56D8] px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#6b45c3]"
               >
                 Start Creating Free
                 <ArrowUpRight size={14} />
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold text-slate-600 transition-colors hover:border-[#7E56D8] hover:text-[#7E56D8]"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-xs font-semibold text-slate-600 transition-colors hover:border-[#7E56D8] hover:text-[#7E56D8]"
               >
                 <CirclePlay className="h-4 w-4" />
                 Watch Demo
@@ -232,13 +231,14 @@ export default function Index() {
             </div>
 
             {/* App mockup */}
-            <div className="bg-transparent">
+            <div className="mt-12 bg-transparent">
               <Image
                 src="/LandingPagemockup.png"
-                alt=""
+                alt="Noviq Interface Mockup"
                 width={1280}
                 height={920}
                 className="mx-auto w-full max-w-5xl"
+                priority
               />
             </div>
           </div>
@@ -265,7 +265,7 @@ export default function Index() {
               {features.map((feature) => (
                 <article
                   key={feature.title}
-                  className="rounded-xl  bg-white p-5 shadow-[0_8px_30px_rgba(85,55,140,0.04)] transition-shadow hover:shadow-md"
+                  className="rounded-xl bg-white p-5 shadow-[0_8px_30px_rgba(85,55,140,0.04)] transition-shadow hover:shadow-md"
                 >
                   <div
                     className={cn(
@@ -340,10 +340,9 @@ export default function Index() {
               </p>
             </header>
 
-            <div className="mt-20 grid gap-6 sm:grid-cols-3 px-10">
+            <div className="mt-20 grid gap-6 px-10 sm:grid-cols-3">
               {templates.map((template) => (
                 <article key={template.title} className="relative pt-6">
-
                   <div className="absolute inset-x-0 top-0 z-0 mx-auto h-24 w-[80%] rounded-t-2xl bg-[#EDE8FB]" />
                   <div className="absolute inset-x-0 top-3 z-10 mx-auto h-24 w-[90%] rounded-t-2xl bg-[#F4F1FC]" />
 
@@ -366,7 +365,7 @@ export default function Index() {
                           <Image
                             key={`${template.title}-${i}`}
                             src={image}
-                            alt=""
+                            alt="Template thumbnail"
                             width={24}
                             height={24}
                             className="h-6 w-6 rounded-full border-2 border-white object-cover"
@@ -379,11 +378,10 @@ export default function Index() {
               ))}
             </div>
 
-
             <div className="mt-10 text-center">
               <a
                 href="#templates"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[#7E56D8] hover:text-[#7E56D8]"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[#7E56D8] hover:underline"
               >
                 View all
                 <ArrowUpRight className="h-4 w-4" />
@@ -403,8 +401,8 @@ export default function Index() {
                 Simple Plans That Scale With Your Creativity
               </h2>
               <p className="mt-4 text-slate-500">
-                Start for free and upgrade when you're ready. Whether you're
-                creating your first video or managing client projects, there's
+                Start for free and upgrade when you&apos;re ready. Whether you&apos;re
+                creating your first video or managing client projects, there&apos;s
                 a plan for you.
               </p>
             </header>
@@ -421,7 +419,7 @@ export default function Index() {
               <Switch checked={yearly} onCheckedChange={setYearly} />
               <span
                 className={cn(
-                  "flex items-center gap-2  text-sm font-bold",
+                  "flex items-center gap-2 text-sm font-bold",
                   yearly ? "text-brand-dark" : "text-slate-400",
                 )}
               >
@@ -460,21 +458,11 @@ export default function Index() {
                     </p>
                     <div className="mt-4 flex items-end gap-1">
                       <span className="text-4xl font-bold">${price}</span>
-                      <span
-                        className={cn(
-                          "pb-1 text-sm",
-                          "text-slate-400",
-                        )}
-                      >
+                      <span className="pb-1 text-sm text-slate-400">
                         /month
                       </span>
                     </div>
-                    <p
-                      className={cn(
-                        "mt-1 text-xs",
-                        "text-slate-400",
-                      )}
-                    >
+                    <p className="mt-1 text-xs text-slate-400">
                       {yearly ? "Billed yearly" : "Billed monthly"}
                     </p>
 
@@ -482,23 +470,17 @@ export default function Index() {
                       {plan.features.map((feature) => (
                         <li
                           key={feature}
-                          className={cn(
-                            "flex items-start gap-2 text-sm",
-                            "text-slate-600",
-                          )}
+                          className="flex items-start gap-2 text-sm text-slate-600"
                         >
-                          <Check size={14} color={"green"} />
-                          {feature}
+                          <Check size={14} className="mt-1 text-emerald-500 shrink-0" />
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
 
                     <a
                       href="#pricing"
-                      className={cn(
-                        "mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors",
-                        "bg-[#7E56D8] text-white hover:bg-[#7E56D8]",
-                      )}
+                      className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7E56D8] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#6b45c3]"
                     >
                       {plan.cta}
                       <ArrowUpRight className="h-4 w-4" />
@@ -544,13 +526,13 @@ export default function Index() {
         </section>
       </div>
 
-      {/* CTA */}
-      <section className="bg-white py-12 sm:py-14 w-full">
-        <div className="md:px-8">
+      {/* CTA Section */}
+      <section className="w-full bg-white py-12 sm:py-14">
+        <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col items-start justify-between gap-7 sm:flex-row sm:items-center">
             <div>
               <h2 className="max-w-xl text-2xl font-bold text-brand-dark sm:text-3xl">
-                Your Next Video Shouldn't Take All Day
+                Your Next Video Shouldn&apos;t Take All Day
               </h2>
               <p className="mt-3 max-w-xl text-sm text-slate-500">
                 Create better videos faster with an AI creative partner that
@@ -560,14 +542,14 @@ export default function Index() {
             <div className="flex flex-col items-stretch gap-3 sm:flex-row">
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#7E56D8] px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#7E56D8]"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-[#7E56D8] px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#6b45c3]"
               >
                 Start editing free
                 <ArrowUpRight className="h-4 w-4" />
               </a>
               <a
                 href="#pricing"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-[#7E56D8] bg-white px-5 py-2.5 text-xs font-semibold text-[#7E56D8] transition-colors hover:border-[#7E56D8]"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-[#7E56D8] bg-white px-5 py-2.5 text-xs font-semibold text-[#7E56D8] transition-colors hover:bg-slate-50"
               >
                 Book a Demo Now
                 <ArrowUpRight className="h-4 w-4" />
