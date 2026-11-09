@@ -3,7 +3,6 @@ import Logo from "@/components/ui/logo";
 import { COLORS } from "@/lib/constants";
 import { Settings, Support, Home, Projects, Logout, Star } from "@/components/ui/icons";
 import { useNavigate } from "@/lib/hooks/router";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const mainPaths = [
@@ -17,43 +16,37 @@ const secondaryPaths = [
     { label: "Support", value: "support", icon: Support },
 ];
 
-export default function DesktopSideNav({ onSelect }) {
-    const [active, setActive] = useState("dashboard")
+export default function SideNav({ onSelect }) {
     const navigate = useNavigate();
 
+    // the hook returns "home" for "/" and "/dashboard"; the sidebar calls that item "dashboard"
+    const active = navigate.current === "home" ? "dashboard" : navigate.current;
+
     const handleClick = (value) => {
-        onSelect(value);
-        setActive(value)
-    }
-
-    const renderItem = ({ label, value, icon: Icon }) => {
-
-        return (
-            <button
-                key={value}
-                onClick={() => handleClick(value)}
-                className="flex flex-col items-center  w-full"
-            >
-                <div
-                    className={cn(
-                        "flex items-center justify-center h-10 w-10 rounded-xl transition-colors",
-                        active === value && "bg-[#e0dfe2]"
-                    )}
-                >
-                    <Icon
-                        width={13}
-                        height={13}
-                    />
-                </div>
-                <span
-                    className="text-[8px] leading-none"
-                    style={{ color: "#8A8A94" }}
-                >
-                    {label}
-                </span>
-            </button>
-        );
+        navigate.to(value, { relative: true });
+        onSelect?.(value);
     };
+
+    const renderItem = ({ label, value, icon: Icon }) => (
+        <button
+            key={value}
+            onClick={() => handleClick(value)}
+            aria-current={active === value ? "page" : undefined}
+            className="flex flex-col items-center w-full"
+        >
+            <div
+                className={cn(
+                    "flex items-center justify-center h-10 w-10 rounded-xl transition-colors",
+                    active === value && "bg-[#e0dfe2]"
+                )}
+            >
+                <Icon width={13} height={13} />
+            </div>
+            <span className="text-[8px] leading-none" style={{ color: "#8A8A94" }}>
+                {label}
+            </span>
+        </button>
+    );
 
     return (
         <nav
@@ -73,16 +66,16 @@ export default function DesktopSideNav({ onSelect }) {
             <div className="flex-1" />
 
             {/* Secondary nav */}
-            <div className="flex flex-col items-center  w-full px-2">
+            <div className="flex flex-col items-center w-full px-2">
                 {secondaryPaths.map(renderItem)}
 
-                {/* Logout kept visually separate — destructive/exit action, not a page destination */}
+                {/* Logout kept visually separate: destructive/exit action, not a page destination */}
                 <button
                     onClick={() => navigate.to("logout")}
                     className="flex flex-col items-center gap-1.5 w-full py-1 mt-1"
                 >
-                    <div className="flex items-center justify-center  rounded-xl">
-                        <Logout width={13} height={13} color="#8A8A94"  />
+                    <div className="flex items-center justify-center rounded-xl">
+                        <Logout width={13} height={13} color="#8A8A94" />
                     </div>
                     <span className="text-[8px] font-medium leading-none" style={{ color: "#8A8A94" }}>
                         Logout

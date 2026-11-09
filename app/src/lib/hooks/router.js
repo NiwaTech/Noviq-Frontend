@@ -1,22 +1,37 @@
-import { useRouter } from "next/navigation";
+"use client";
+
+import { useRouter, usePathname } from "next/navigation";
 
 export const useNavigate = () => {
   const router = useRouter();
-  const current = router?.name === "Dashboard" ? "Home" : router?.name ?? "Home";
+  const pathname = usePathname();
+
+  const segments = pathname.split("/").filter(Boolean);
+  const first = segments[0] ?? "home";
+  const current = first === "dashboard" ? "home" : first;
+
   return {
     current,
+    pathname,
+    segments,
     to: (route, options = {}) => {
-      const { params = false, replace = false, containerRender = false} = options;
-      const query = params ? new URLSearchParams(params).toString() : "";
-      if (containerRender) {
-       return;
-      }
-      const path = route === "home" ? "/" : `/${route}`;
-      if (params) {
-        replace ? router.replace(`${path}?${query}`) : router.push(`${path}?${query}`);
+      const { params = false, replace = false, relative = false } = options;
+
+      let path;
+      if (route === "home") {
+        path = "/";
+      } else if (route.startsWith("/")) {
+        path = route;         
+      } else if (relative) {
+        path = `${pathname.replace(/\/$/, "")}/${route}`;  
       } else {
-        replace ? router.replace(path) : router.push(path);
+        path = `/${route}`;
       }
+
+      const query = params ? new URLSearchParams(params).toString() : "";
+      const url = query ? `${path}?${query}` : path;
+
+      replace ? router.replace(url) : router.push(url);
     },
     back: () => router.back(),
     refresh: () => router.refresh(),
