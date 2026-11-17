@@ -58,6 +58,7 @@ export default function DesktopSideNav({ onSelect }) {
     const handleClick = (value) => {
         onSelect?.(value);
         setActive(value);
+        navigate.to(value, { relative: false });
     };
 
     const renderItem = ({ label, value, icon: Icon }) => {
@@ -170,4 +171,3 @@ export default function DesktopSideNav({ onSelect }) {
         </nav>
     );
 }
-
