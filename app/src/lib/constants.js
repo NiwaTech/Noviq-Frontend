@@ -38,7 +38,7 @@ export const COLORS = {
 
     // Buttons
     button: "#7E56D8",
-    buttonText: "#FFFFFF",
+    buttonText: "#ffffffde",
     switchbutton: "#FFFFFF",
     hoverbutton: "#e0dfe2",
 
